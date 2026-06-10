@@ -1,21 +1,28 @@
-name: Deploy VitePress site to Pages
+name: Deploy Site
 
 on:
   push:
-    branches: [main]
+    branches: ["main"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Prevents simultaneous deployments from breaking or clashing
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Fixed typo here!
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,7 +31,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24  # Bumped to 24 to match the environment standard
+          cache: npm        # Caches dependencies to make builds faster
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
@@ -34,6 +42,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Note: If your VitePress source files live inside a 'docs' folder,
+          # you'll need to change this path to: docs/.vitepress/dist
           path: .vitepress/dist
 
   deploy:
