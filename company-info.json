@@ -1,0 +1,23 @@
+{
+  "name": "vxltxr LLC",
+  "state": "Wyoming",
+  "filing_id": "2026-002000922",
+  "registered_agent": "Registered Agents Inc",
+  "registered_agent_address": "30 N Gould St Ste R, Sheridan, WY 82801",
+  "principal_office": "251 West 30th Street, 12th Floor, New York, NY 10001",
+  "email": "contact@vxltxr.com",
+  "links": {
+    "chat": "https://chat.vxltxr.com",
+    "calendar": "https://calendar.zoho.com/zc/ui/embed/#calendar=zz08011230d48b2b7bb3cfddbc0559bdc0858a6ac7a055b2d45483b45fb3ab669ddb051c2ef1a82fdac82ac806a5a64f117f875ceb&mode=pub&timezone=Asia/Bangkok",
+    "linkedin": "https://linkedin.com/company/vxltxr-llc",
+    "website": "https://vxltxr.com"
+  },
+  "people": [
+    {
+      "name": "Andrei Ivanov",
+      "role": "Executive Member",
+      "email": "executive@vxltxr.com",
+      "linkedin": ""
+    }
+  ]
+}

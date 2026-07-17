@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "headline": "Your AI. Your rules.",
+    "subline": "We build and deploy private LLM and AI solutions for your infrastructure — private models, private data, no compromises."
+  },
+  "about": {
+    "heading": "About Us",
+    "description": "vxltxr llc is an independent AI research and engineering lab. We believe every organization — from growing startups to established enterprises — deserves access to private, sovereign AI. Our commercial practice makes that real: with consulting that transfers knowledge, not dependency."
+  },
+  "services": {
+    "heading": "What We Do",
+    "items": [
+      {
+        "title": "Private LLM Deployment",
+        "description": "Run large language models on your own hardware or private cloud. Your data stays yours — always."
+      },
+      {
+        "title": "Agentic Systems",
+        "description": "Agentic or Context Management layer: autonomous, tool-using, multi-step thinkers tailored to your workflows."
+      },
+      {
+        "title": "Infrastructure Design",
+        "description": "From a single cloud GPU to a private cluster — we design and help to set up the infrastructure your AI needs to run."
+      },
+      {
+        "title": "Strategy & Consulting",
+        "description": "Not sure where to start? We help you pick the right models, the right architecture, and the right approach for your budget."
+      }
+    ]
+  },
+  "process": {
+    "heading": "How It Works",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Free Intro Call",
+        "description": "A 30 minute conversation to learn about each other and understand your needs."
+      },
+      {
+        "number": "02",
+        "title": "Case Study Meeting",
+        "description": "A 90 minute deep-dive where we present a tailored proposal for your project."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Get in Touch",
+    "description": "Interested in working together? Reach out at"
+  }
+}

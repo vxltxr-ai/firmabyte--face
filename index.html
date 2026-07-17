@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vxltxr llc</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="assets/logo.jpg" alt="vxltxr llc logo" width="48" height="48">
+      </div>
+      <h1 class="company-name">vxltxr llc</h1>
+      <a class="chat-btn" data-fill-href="links.chat" href="https://chat.vxltxr.com" target="_blank" rel="noopener">Chat</a>
+    </div>
+  </header>
+
+  <main class="site-body">
+    <div class="container" id="body-content"></div>
+  </main>
+
+  <div id="footer-content"></div>
+
+  <script>
+    let COMPANY = {};
+
+    async function fetchJSON(file) {
+      try {
+        const res = await fetch(file);
+        if (!res.ok) throw new Error(res.status);
+        return await res.json();
+      } catch (e) {
+        console.warn('Failed to load ' + file + ':', e);
+        return {};
+      }
+    }
+
+    async function loadPartial(id, file) {
+      try {
+        const res = await fetch('partials/' + file);
+        if (!res.ok) throw new Error(res.status);
+        document.getElementById(id).innerHTML = await res.text();
+      } catch (e) {
+        console.warn('Failed to load ' + file + ':', e);
+      }
+    }
+
+    function fillData() {
+      document.querySelectorAll('[data-fill]').forEach(el => {
+        const key = el.getAttribute('data-fill');
+        const val = key.split('.').reduce((o, k) => o && o[k], COMPANY);
+        if (val !== undefined && val !== null && val !== '') {
+          el.textContent = val;
+        }
+      });
+      document.querySelectorAll('[data-fill-href]').forEach(el => {
+        const key = el.getAttribute('data-fill-href');
+        const val = key.split('.').reduce((o, k) => o && o[k], COMPANY);
+        if (val) {
+          const prefix = key === 'email' ? 'mailto:' : '';
+          el.href = prefix + val;
+        }
+      });
+    }
+
+    async function init() {
+      const [company, content] = await Promise.all([
+        fetchJSON('company-info.json'),
+        fetchJSON('content.json')
+      ]);
+      COMPANY = { ...company, ...content };
+      await Promise.all([
+        loadPartial('body-content', 'body.html'),
+        loadPartial('footer-content', 'footer.html')
+      ]);
+      fillData();
+    }
+
+    init();
+  </script>
+
+</body>
+</html>
