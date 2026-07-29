@@ -40,6 +40,11 @@
         "number": "02",
         "title": "Case Study Meeting",
         "description": "A 90 minute deep-dive where we present a tailored proposal for your project."
+      },
+      {
+        "number": "03",
+        "title": "Project plan and cost model",
+        "description": "We setup contract and proceed with development"
       }
     ]
   },
